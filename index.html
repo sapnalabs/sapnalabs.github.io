@@ -3,9 +3,37 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hello World</title>
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0b1220">
+<title>Hello, World</title>
+<style>
+:root{--bg:#0b1220;--bg-accent:rgba(255,255,255,.04);--fg:#e6edf3;--muted:#93a1af;--brand-1:#7c3aed;--brand-2:#06b6d4;--glow:rgba(124,58,237,.35)}
+@media (prefers-color-scheme: light){:root{--bg:#f8fafc;--bg-accent:rgba(15,23,42,.04);--fg:#0b1220;--muted:#475569;--glow:rgba(124,58,237,.18)}}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;display:grid;place-content:center;gap:20px;background:
+radial-gradient(1200px 600px at 50% 0%,var(--bg-accent),transparent 60%),
+linear-gradient(180deg,var(--bg),var(--bg));color:var(--fg);font:400 16px/1.5 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji}
+main{position:relative;isolation:isolate;text-align:center}
+main::before{content:"";position:absolute;inset:-12vmax;z-index:-1;background:radial-gradient(55% 55% at 50% 40%,var(--glow),transparent 60%);filter:blur(40px);opacity:.9}
+h1{margin:0;font-weight:800;letter-spacing:-.02em;font-size:clamp(40px,10vw,128px);background:linear-gradient(92deg,var(--brand-1),var(--brand-2));-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 1px 0 rgba(0,0,0,.05)}
+.tagline{margin:0;color:var(--muted);font-size:clamp(14px,2.4vw,20px)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:12px 18px;border-radius:999px;border:1px solid rgba(124,58,237,.35);background:linear-gradient(180deg,rgba(124,58,237,.12),rgba(124,58,237,.08));color:var(--fg);backdrop-filter:saturate(140%) blur(8px);-webkit-backdrop-filter:saturate(140%) blur(8px);text-decoration:none;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px -10px rgba(124,58,237,.45),0 6px 18px -12px rgba(6,182,212,.35);border-color:rgba(6,182,212,.55)}
+.btn:focus-visible{outline:3px solid rgba(6,182,212,.6);outline-offset:2px}
+@keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
+@keyframes shine{0%{background-position:0% 50%}100%{background-position:100% 50%}}
+h1{animation:shine 6s ease-in-out infinite alternate}
+main{animation:float 9s ease-in-out infinite}
+@media (prefers-reduced-motion: reduce){h1,main{animation:none}}
+footer{margin-top:8px;color:var(--muted);font-size:12px}
+</style>
 </head>
 <body>
-<h1>hello world</h1>
+<main>
+<h1>Hello, World</h1>
+<p class="tagline">A tiny page with oversized delight.</p>
+</main>
+<footer>Built with care · Respects dark mode and reduced motion</footer>
 </body>
 </html>
